@@ -3,6 +3,14 @@
     box-shadow: none;
 }
 
+header nav a{
+    margin: 0 auto;
+}
+
+label{
+    font-size: 0.8em;
+}
+
 .btn-add{
     display: block;
     margin: 0 auto;
@@ -18,17 +26,13 @@
     padding-top: 25px;
 }
 
-header nav a{
-    margin: 0 auto;
-}
-
-label{
-    font-size: 0.8em;
-}
-
 .form-control{
     border: 0;
     border-bottom: 1px solid #000;
     border-radius: 0;
+}
+
+.nav-link{
+    color: #fff;
 }
 
