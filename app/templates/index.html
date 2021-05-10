@@ -1,0 +1,81 @@
+<html>
+
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/impacta.css')}}">
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a href="../../">
+          <img src="https://www.impacta.edu.br/themes/wc_agenciar3/images/logo-new.png" alt="" height="52" class="logo">
+        </a>
+      </nav>
+    </header>
+
+    {%if aluno|length == 0 %}
+      <div class="jumbotron">
+        <h1 class="display-4 text-center">...</h1>
+        <p class="lead text-center">Ainda não há alunos cadastrados</p>
+        <a class="btn btn-primary btn-add" href="/add" role="button">Adicionar Aluno</a>
+      </div>
+    {% endif %}
+
+    {%if aluno|length >= 1 %}
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 p-0">
+            <h1 class="text-center">Cadastro de Cliente</h1>
+
+            <table class="table table-striped">
+              <thead class="thead-dark text-center">
+                <tr>
+
+                  <th scope="col">Nome</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Logradouro</th>
+                  <th scope="col">Número</th>
+                  <th scope="col">Complemento</th>
+                  <th scope="col">Cep</th>
+                  <th scope="col">Ações</th>
+                </thead>
+                <tbody>
+
+                  {% for c in aluno %}
+                    <tr scope="row">
+                      <td>{{c.nome}}</td>
+                      <td>{{c.email}}</td>
+                      <td>{{c.logradouro}}</td>
+                      <td>{{c.numero}}</td>
+                      <td>{{c.complemento}}</td>
+                      <td>{{c.cep}}</td>
+                      <td>
+                        <a href="/edit/{{c.ra}}" class="btn btn-primary">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a href="/delete/{{c.ra}}" class="btn btn-danger">
+                          <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+
+        {% endif %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+      </body>
+
+    </html>
