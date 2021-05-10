@@ -11,6 +11,10 @@ label{
     font-size: 0.8em;
 }
 
+table{
+    margin-top: 65px;
+}
+
 .btn-add{
     display: block;
     margin: 0 auto;
